@@ -49,7 +49,7 @@ module DIDWW
       if methods.include? method_name
         params = (args.first || {}).merge(auth_string: auth_string)
         params.merge!(uniq_hash: (Time.now.to_i.to_s + auth_string)) if UNIQUE_HASH_METHODS.include?(method_name)
-        @savon.call METHOD_TRANSLATIONS[method_name], params
+        @savon.call METHOD_TRANSLATIONS[method_name], message: params
       else
         raise NoMethodError, "#{method_name} is not a valid api endpoint!"
       end
