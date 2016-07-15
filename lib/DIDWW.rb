@@ -1,9 +1,10 @@
 require "DIDWW/version"
 require "DIDWW/configuration"
+require 'DIDWW/client'
 
 module DIDWW
   class << self
-    attr_accessor :configuration
+    attr_reader :configuration
   end
 
   def self.configuration
